@@ -1,5 +1,5 @@
-// This is the data we will be using to create our articles. Look at it, then proceed to line 93.
-// OPTIONAL: if you're feeling adventurous, try to make this data an export from a different module, and import it here.
+// This is th= articleObj we will be using to create our articles. Look at it, then proceed to line 93.
+// OPTIONAL: if you're feeling adventurous, try to make thi= articleObj an export from a different module, and import it here.
 // You can read about ES6 modules here: https://exploringjs.com/es6/ch_modules.html#sec_basics-of-es6-modules
 const data = [
   {
@@ -108,14 +108,15 @@ const data = [
 
   Step 3: Don't forget to return something from your function!
 
-  Step 4: Outside your function now, loop over the data. At each iteration you'll use your component
+  Step 4: Outside your function now, loop over th= articleObj. At each iteration you'll use your component
   to create a div.article element and append it to the DOM inside div.articles (see index.html).
 
-  Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
+  Step 5: Try adding new article object to th= articleObj array. Make sure it is in the same format as the others.
   Refresh the page to see the new article.
 */
 
-function articleMaker(data) {
+function articleMaker(articleObj) {
+  //create elements
   const createArticle = document.createElement('div')
   const articleTitle = document.createElement('h2')
   const articleDate = document.createElement('p')
@@ -124,6 +125,7 @@ function articleMaker(data) {
   const articleParaThree = document.createElement('p')
   const articleButton = document.createElement('span')
 
+  //append elements
   createArticle.appendChild(articleTitle)
   createArticle.appendChild(articleDate)
   createArticle.appendChild(articleParaOne)
@@ -131,21 +133,22 @@ function articleMaker(data) {
   createArticle.appendChild(articleParaThree)
   createArticle.appendChild(articleButton)
 
+  //add class list
   createArticle.classList.add('article')
   articleDate.classList.add('date')
   articleButton.classList.add('expandButton')
 
-  articleTitle.textContent = data.title
-  articleDate.textContent = data.date
-  articleParaOne.textContent = data.firstParagraph
-  articleParaTwo.textContent = data.secondParagraph
-  articleParaThree.textContent = data.thirdParagraph
+  //add text content
+  articleTitle.textContent = articleObj.title
+  articleDate.textContent = articleObj.date
+  articleParaOne.textContent = articleObj.firstParagraph
+  articleParaTwo.textContent = articleObj.secondParagraph
+  articleParaThree.textContent = articleObj.thirdParagraph
   articleButton.textContent = "+"
   
- //task2
+ //task2 add event listner
  articleButton.addEventListener("click", () => {
    createArticle.classList.toggle('article-open')
-   createArticle.classList.toggle('hide-btn')
  }) 
  
 //task3
@@ -158,3 +161,4 @@ data.forEach(articleComponent => {
   const newArticle = articleMaker(articleComponent)
   articles.append(newArticle)
 })
+

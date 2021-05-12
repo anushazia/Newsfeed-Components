@@ -34,42 +34,52 @@ let menuItems = [
 
 //funtion called menuMaker that takes in menuItems
 function menuMaker(menuItems) {
-  const nav = document.createElement('div')
+  //create elements
+  const menu = document.createElement('div')
   const menuList = document.createElement('ul')
-  const students = document.createElement('li')
-  const faculty = document.createElement('li')
-  const whatsNew = document.createElement('li')
-  const techTrends = document.createElement('li')
-  const music = document.createElement('li')
-  const logOut = document.createElement('li')
+  // const students = document.createElement('li')
+  // const faculty = document.createElement('li')
+  // const whatsNew = document.createElement('li')
+  // const techTrends = document.createElement('li')
+  // const music = document.createElement('li')
+  // const logOut = document.createElement('li')
   const menuButton = document.createElement('.menu-button')
 
+//iterate over menuItems
+menuItems.forEach(function (item) {
+  const menuListItems = document.createElement('li')
+  menuListItems.textContent = item
+  menuList.appendChild(menuListItems)
+});
+
 //classes
-  nav.classList.add('menu')
+  menu.classList.add('menu')
 
-  nav.appendChild(menuList)
+//append
+  menu.appendChild(menuList)
 
-  menuButton.appendChild(students);
-	menuButton.appendChild(faculty);
-	menuButton.appendChild(whatsNew);
-	menuButton.appendChild(techTrends);
-	menuButton.appendChild(music);
-	menuButton.appendChild(logOut);
+  // menuButton.appendChild(students);
+	// menuButton.appendChild(faculty);
+	// menuButton.appendChild(whatsNew);
+	// menuButton.appendChild(techTrends);
+	// menuButton.appendChild(music);
+	// menuButton.appendChild(logOut);
 
-  students.textContent = menuItems[0]
-  faculty.textContent = menuItems[1]
-  whatsNew.textContent = menuItems[2]
-  techTrends.textContent = menuItems[3]
-  music.textContent = menuItems[4]
-  logOut.textContent = menuItems[5]
+  // students.textContent = menuItems[0]
+  // faculty.textContent = menuItems[1]
+  // whatsNew.textContent = menuItems[2]
+  // techTrends.textContent = menuItems[3]
+  // music.textContent = menuItems[4]
+  // logOut.textContent = menuItems[5]
 
-  menuButton.addEventListener('click', () => {
-    nav.classList.toggle('menu--open')
+  //add event listner
+  menuButton.addEventListener('click', function() {
+    menu.classList.toggle('menu--open')
   })
   
-  menuButton.appendChild(nav)
+  menuButton.appendChild(menu)
 
-  return nav;
+  return menu;
 }
 
 const header = document.querySelector('.header')
